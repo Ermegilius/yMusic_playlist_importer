@@ -76,3 +76,7 @@ python fetch_tracks.py
 > `.env` and all output CSV files are excluded from version control via `.gitignore`.
 
 See [USAGE.md](USAGE.md) for a full walkthrough including API endpoint reference.
+
+## License
+
+[MIT](LICENSE)
