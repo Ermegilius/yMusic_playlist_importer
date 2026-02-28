@@ -1,0 +1,15 @@
+# Secrets
+.env
+
+# Output CSV files (may contain personal data)
+liked_tracks_*.csv
+unavailable_tracks_*.csv
+unavailable_playlist_*.csv
+playlist_*.csv
+
+# Raw API responses
+*.json
+
+# Python
+__pycache__/
+*.pyc
