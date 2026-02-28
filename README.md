@@ -71,7 +71,9 @@ python fetch_tracks.py
 
 > This script uses the unofficial Yandex Music API via the official app's `client_id`. Tokens are valid for months but expire if you change your Yandex password.
 
-> **About this `client_id`:** It was reportedly extracted from the official Yandex Music Windows Phone app by someone in the open-source community and appears in several projects. I cannot verify its origin or safety. Use it at your own risk.
+> . **About this `client_id`:** It was reportedly extracted from the official Yandex Music Windows Phone app by someone in the open-source community and appears in several projects. I cannot verify its origin or safety. Use it at your own risk.
+
+> **Regional availability:** Yandex Music may not be available in your region. If the API returns errors or access is blocked, try connecting from a region where Yandex Music is operational (e.g., Georgia).
 
 > `.env` and all output CSV files are excluded from version control via `.gitignore`.
 
