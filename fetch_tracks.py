@@ -94,7 +94,8 @@ def fetch_likes_ids(uid: str, headers: dict) -> list[str]:
     if not resp:
         return []
     tracks = resp.get("result", {}).get("library", {}).get("tracks", [])
-    return [f"{t['id']}:{t['albumId']}" for t in tracks]
+    # Tracks without an album (e.g. user uploads) have no albumId; the bare id is accepted
+    return [f"{t['id']}:{t['albumId']}" if t.get("albumId") else str(t["id"]) for t in tracks]
 
 
 def fetch_tracks_batch(ids: list[str], headers: dict) -> list[dict]:
