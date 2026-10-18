@@ -72,6 +72,7 @@ GET https://api.music.yandex.net/users/{uid}/likes/tracks
 ```
 
 The response contains an array of objects with fields `id`, `albumId`, and `timestamp`.
+Tracks that belong to no album, such as your own uploads, have no `albumId`.
 
 ---
 
