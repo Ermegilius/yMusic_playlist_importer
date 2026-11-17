@@ -4,7 +4,24 @@ import time
 import os
 import urllib.request
 import urllib.parse
+import ssl
 
+import ssl
+
+CA_FILE = os.environ.get("EXTRA_CA_FILE", "rucert.cer")
+
+def _make_ssl_context() -> ssl.SSLContext:
+    ctx = ssl.create_default_context()  # normal system CAs
+    if os.path.exists(CA_FILE):
+        with open(CA_FILE, "rb") as f:
+            data = f.read()
+        if b"-----BEGIN CERTIFICATE-----" in data:
+            ctx.load_verify_locations(cadata=data.decode("ascii"))  # PEM
+        else:
+            ctx.load_verify_locations(cadata=data)                  # DER
+    return ctx
+
+SSL_CTX = _make_ssl_context()
 
 # --- Load .env file (no external dependencies) ---
 
